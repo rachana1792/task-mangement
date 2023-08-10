@@ -1,25 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Header, ListContainer, AddButton } from './style';
-import AddProject from '../../components/AddProject';
-import { Card, Typography, Button } from '@phork/phorkit'
+import { Container, ListContainer,Button, ButtonContainer,TextContainer } from './style';
+import { Card, Typography, Pagination } from '@phork/phorkit'
 import Description from '../../components/Description/Description'
-import { useNavigate  } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ToolBar from '../../components/ToolBar';
+
+import mockCards from '../../data/cards'
+import ViewModel from '../../components/ViewModel/ViewModel'
 
 const AllProjects = () => {
 
   const URL = "https://jsonplaceholder.typicode.com/posts";
   const [data, getData] = useState([]);
-  const [isAdmin, setisAdmin] = useState(true);
+  // const [isAdmin, setisAdmin] = useState(true);
   const [content, setContent] = useState();
-  
+
+
   const navigateTo = useNavigate();
 
 
 
   useEffect(() => {
     fetchData();
-     setContent(data[0]);
     //  console.log(data[0])
   }, []);
 
@@ -33,6 +35,10 @@ const AllProjects = () => {
       });
   };
 
+  const arrayElm = (task: React.SetStateAction<undefined>)=>{
+      setContent(task);
+
+  }
 
 
   return (
@@ -73,12 +79,13 @@ const AllProjects = () => {
                 key={task?.id}
                 id={task?.id}
                 style={{
-                  marginLeft: "50px", 
-                  marginBottom: "50px", 
+                  marginLeft: "50px",
+                  marginBottom: "50px",
                   width: "25%"
                 }}
                 onClick={() => setContent(task)}
               >
+                <TextContainer>
                 <Typography
                   as="h1"
                   color="primary"
@@ -86,10 +93,10 @@ const AllProjects = () => {
                     alignItems: 'center',
                     display: 'flex',
                     justifyContent: 'center',
-                    fontWeight:'bold'
+                    fontWeight: 'bold'
                   }}
                 >
-                  {`${task?.title?.substring(0, 20)}...`}
+                  {task?.title}
                 </Typography>
                 <Typography
                   as="div"
@@ -102,10 +109,40 @@ const AllProjects = () => {
                 >
                   {`${task?.body?.substring(0, 100)}...`}
                 </Typography>
+                </TextContainer>
+                <div onClick={()=>arrayElm(task)}>
+                <Description content={content}/>
+
+                </div>
+                {/* <ButtonContainer>
+              {location.pathname==='/myProjects' ?  <Button onClick={()=>navigateTo('/board')}>View</Button> : <ViewModel tasks={task} body={task?.body}/>}  
+                {location.pathname==='/all' && <Button onClick={()=>navigateTo('/board')}>Start</Button>}
+            </ButtonContainer> */}
               </Card>
             )}
+
+            <Pagination
+              color="primary"
+              justify="start"
+              onChangePage={function noRefCheck() { }}
+              page={8}
+              pageLabelProps={{
+                size: 'medium',
+                variants: 'no-wrap'
+              }}
+              pageLinks={6}
+              pageSize={10}
+              shape="pill"
+              size="medium"
+              spacing="joined"
+              totalItems={300}
+              weight="shaded"
+              withIcons
+              withPageLinks
+              withPreviousAndNext
+            />
           </ListContainer>
-{content && <Description content={content}  />}
+          {/* {content && <Description content={content} />} */}
         </Container>
       </div>
     </>

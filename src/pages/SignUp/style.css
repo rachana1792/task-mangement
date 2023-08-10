@@ -2,6 +2,13 @@
 @import '@radix-ui/colors/violet.css';
 @import '@radix-ui/colors/mauve.css';
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+
 /* reset */
 input,
 textarea,
@@ -23,12 +30,12 @@ button {
   font-size: 15px;
   font-weight: 500;
   line-height: 35px;
-  color: #808080;
+  color: #808088;
 }
 
 .FormMessage {
   font-size: 13px;
-  color: #808080;
+  color: #808088;
   opacity: 0.8;
 }
 
@@ -41,7 +48,7 @@ button {
   border-radius: 4px;
 
   font-size: 15px;
-  color: white;
+  color: #808088;
   background-color: var(--black-a5);
   box-shadow: 0 0 0 1px var(--black-a9);
 }
@@ -56,7 +63,7 @@ button {
 .Input::selection,
 .Textarea::selection {
   background-color: var(--black-a9);
-  color: white;
+  color: #808088;
 }
 
 .Input {
@@ -82,8 +89,8 @@ button {
   height: 35px;
   width: 100%;
 
-  background-color: #0000FF !important;
-  color: #fff !important;
+  background-color: #808088;
+  color: var(--violet-11);
   box-shadow: 0 2px 10px var(--black-a7);
 }
 .Button:hover {
@@ -92,3 +99,37 @@ button {
 .Button:focus {
   box-shadow: 0 0 0 2px black;
 }
+
+.head{
+    text-align: center;
+}
+
+  
+  .signUpRoot {
+    font-family: system-ui;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 50px 300px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+  }
+  
+  svg {
+    display: block;
+  }
+
+  .signUp{
+    margin-left: 35%;
+    border: 0px solid transparent !important;
+
+  }
+  .signUp:focus{
+    text-decoration: underline !important;
+  }
+  

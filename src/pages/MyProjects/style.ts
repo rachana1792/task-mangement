@@ -44,8 +44,6 @@ export const AddButton = styled.button`
 export const ListContainer = styled.div`
 color: #fff;
 margin-top: 2rem;
-
-height: 50%;
 width: 100%;
 text-align: center;
 overflow-y: auto;
@@ -53,10 +51,39 @@ display: flex;
 flex-wrap: wrap;
 justify-content: center
 position: relative;
-height:50vh;
-border: 1px solid #0000FF;
 
 `
+
+
+export const TextContainer = styled.div`
+
+height:80%
+  `
+
+export const ButtonContainer = styled.div`
+
+  display:flex;
+  justify-content: flex-end;
+  `
+
+export const Button = styled.button`
+  
+background-color: #0000FF;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 0;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    margin-right: 10px;
+    font-size: 15px;
+    line-height: 1;
+    height: 20px !important;
+
+  `
 
 export const ListElements = styled.div`
 height: 50%;
