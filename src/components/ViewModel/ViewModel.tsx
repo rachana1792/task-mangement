@@ -5,8 +5,7 @@ import {List } from '@phork/phorkit'
 
 
 const AlertDialogDemo = (props) => {
-    const {tasks} = props;
-    // console.log(tasks)
+    const {tasks, content} = props;
 
 return(    
 
@@ -17,8 +16,14 @@ return(
     <AlertDialog.Portal>
       <AlertDialog.Overlay className="AlertDialogOverlay" />
       <AlertDialog.Content className="AlertDialogContent">
+      <AlertDialog.Title className="AlertDialogTitle"> Title</AlertDialog.Title>
+        <AlertDialog.Description className="AlertDialogDescription">{content?.title}</AlertDialog.Description>
+        <AlertDialog.Title className="AlertDialogTitle"> Description</AlertDialog.Title>
+        <AlertDialog.Description className="AlertDialogDescription">{content?.body}</AlertDialog.Description>
         <AlertDialog.Title className="AlertDialogTitle"> TODO Items</AlertDialog.Title>
+
         <AlertDialog.Description className="AlertDialogDescription">
+
         <List
   color="primary"
   items={tasks}

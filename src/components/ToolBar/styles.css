@@ -79,9 +79,9 @@ button {
   padding-left: 10px;
   padding-right: 10px;
   color: white;
-  background-color: var(--violet-9);
+  background-color: #0000FF !important;
 }
 .ToolbarButton:hover {
-  background-color: var(--violet-10);
+  background-color: #0000FF !important;
   color: white;
 }

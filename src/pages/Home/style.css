@@ -124,4 +124,13 @@ button {
   svg {
     display: block;
   }
+
+  .signUp{
+    margin-left: 35%;
+    border: 0px solid transparent !important;
+
+  }
+  .signUp:focus{
+    text-decoration: underline !important;
+  }
   

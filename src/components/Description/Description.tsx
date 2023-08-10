@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Header, ListContainer, Button, ButtonContainer } from './styles';
+import { Button, ButtonContainer } from './styles';
 import { useNavigate, useLocation  } from "react-router-dom";
 
 import mockCards from '../../data/cards'
@@ -25,27 +25,17 @@ return tasks
 }
 useEffect(() => {
     modalData()
-    // console.log(tasks,"content")
 
   }, [])
 
+
   return (
     <>
-      <div>
-        <Container>
-          <Header>
-            <h1>{content?.title}</h1>
-          </Header>
-          <ListContainer>
-            <div>{content?.body}</div>
-          </ListContainer>
+
             <ButtonContainer>
-              {location.pathname==='/myProjects' ?  <Button onClick={()=>navigateTo('/board')}>View</Button> : <ViewModel tasks={tasks}/>}  
+              {location.pathname==='/myProjects' ?  <Button onClick={()=>navigateTo('/board')}>View</Button> : <ViewModel tasks={tasks} content={content}/>}  
                 {location.pathname==='/all' && <Button onClick={()=>navigateTo('/board')}>Start</Button>}
             </ButtonContainer>
-
-        </Container>
-      </div>
     </>
   )
 }
